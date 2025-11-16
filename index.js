@@ -85,9 +85,12 @@ app.get('/api/persons/:id', (request, response) => {
 // ---------- Delete a single phone book entry ----------
 app.delete('/api/persons/:id', (req, res) => {
   const id = req.params.id;
+  // Find the contact that need to be deleted
+  const person = persons.find((z) => z.id === id);
   // Filter out the list
   persons = persons.filter((z) => z.id !== id);
-  res.status(204).end();
+  // Response the person so that the list get updated
+  res.json(person);
 });
 
 // ---------- Add new entries ----------

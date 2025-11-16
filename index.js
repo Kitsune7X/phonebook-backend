@@ -24,8 +24,11 @@ let persons = [
     number: '39-23-6423122',
   },
 ];
+// ==============================
+// * Middleware — START
+// ==============================
 
-// ---------- Middleware ----------
+// ---------- Morgan token ----------
 // Create a new token to be used in `morgan`
 // https://github.com/expressjs/morgan#creating-new-tokens
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
@@ -41,6 +44,10 @@ app.use(
     ':method :url :status :res[content-length] - :response-time ms :body'
   )
 );
+
+// ==============================
+// * Middleware — END
+// ==============================
 
 // ---------- Root entry ----------
 app.get('/', (request, response) => {

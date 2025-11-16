@@ -49,6 +49,10 @@ app.use(
 // * Middleware — END
 // ==============================
 
+// ==============================
+// * Handling requests — START
+// ==============================
+
 // ---------- Root entry ----------
 app.get('/', (request, response) => {
   response.send('<h1>Hello!</h1>');
@@ -123,9 +127,11 @@ app.post('/api/persons', (req, res) => {
   res.json(person);
 });
 
+// ==============================
+// * Handling requests — END
+// ==============================
+
 const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
-// Use relative path and add proxy to vite config

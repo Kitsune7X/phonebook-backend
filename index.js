@@ -45,6 +45,9 @@ app.use(
   )
 );
 
+// ---------- Serving static files  ----------
+app.use(express.static('dist'));
+
 // ==============================
 // * Middleware — END
 // ==============================

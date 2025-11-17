@@ -33,3 +33,22 @@ const contact = new Contact({
   name,
   number,
 });
+
+//  Save the contact Database
+if (process.argv.length > 3) {
+  contact.save().then((result) => {
+    console.log(`added ${name} number ${number} to phonebook`);
+    mongoose.connection.close();
+  });
+}
+
+// Fetch the contact list when only password is provided
+if (process.argv.length === 3) {
+  Contact.find({}).then((result) => {
+    console.log(`phonebook:`);
+    result.forEach((contact) =>
+      console.log(`${contact.name} ${contact.number}`)
+    );
+    mongoose.connection.close();
+  });
+}
